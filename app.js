@@ -18,6 +18,7 @@ import {
   REQUEST_TIME,
 } from "./app/config/config.js";
 import { DefaultError, NotFoundError } from "./app/utility/errorHandler.js";
+import router from "./routes/api.js";
 
 // === Initial Express app ===
 const app = express();
@@ -35,6 +36,7 @@ app.use(hpp());
 app.use(xss());
 app.use(limit);
 
+app.use("/api", router);
 
 // === Database Connection ===
 mongoose
